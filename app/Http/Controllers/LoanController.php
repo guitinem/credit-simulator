@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
@@ -27,7 +28,8 @@ class LoanController extends Controller
                 'term_in_months' => 'required|numeric|gt:1',
                 'birth_date' => 'required|date_format:d-m-Y',
                 'loan_amount' => 'required|numeric|gt:0',
-                'email' => 'nullable|email:rfc,dns'
+                'email' => 'nullable|email:rfc,dns',
+                'interest_type' => ['nullable', Rule::in(['fixed', 'variable'])]
             ]);
         } catch (ValidationException $e) {
             return response()->json([
@@ -40,8 +42,14 @@ class LoanController extends Controller
         $loanAmount = $request->input('loan_amount');
         $termInMonths = $request->input('term_in_months');
         $birthDate = $request->input('birth_date');
+        $interestType = $request->input('interest_type');
 
-        $simulateLoan = $this->loanService->simulateLoan($loanAmount, $birthDate, $termInMonths);
+        $simulateLoan = $this->loanService->simulateLoan(
+            $loanAmount,
+            $birthDate,
+            $termInMonths,
+            $interestType
+        );
 
         // Validate to send Email
         if ($request->has('email')) {
