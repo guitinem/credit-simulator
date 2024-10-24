@@ -103,6 +103,7 @@ class LoanService
         if($monthlyInterestRate == 0) {
             return $loanAmount / $termInMonths;
         }
+
         $fixedInstallmentValue = ($loanAmount * $monthlyInterestRate) / 
         (1 - pow(1 + $monthlyInterestRate, -$termInMonths));
         
