@@ -44,46 +44,37 @@ Request Params
     </thead>
     <tbody>
         <tr>
-            <td style="text-align: left;"><code class="rdmd-code lang- theme-light" tabindex="0">loan_amount</td>
+            <td style="text-align: left;">loan_amount</td>
             <td style="text-align: left;"><strong>int</strong></td>
             <td style="text-align: center;">Sim</td>
             <td style="text-align: left;">Valor do empréstimo</td>
         </tr>
         <tr>
-            <td style="text-align: left;"><code class="rdmd-code lang- theme-light"
-            tabindex="0"><span>birth_date</span></code></td>
+            <td style="text-align: left;">birth_date</td>
             <td style="text-align: left;"><strong>string</strong></td>
             <td style="text-align: center;">Sim</td>
             <td style="text-align: left;">Data de nascimento, utilize o formato d-m-Y</td>
         </tr>
         <tr>
-            <td style="text-align: left;"><code class="rdmd-code lang- theme-light" tabindex="0">
-                <span>term_in_months</span></code>
-            </td>
+            <td style="text-align: left;">term_in_months</td>
             <td style="text-align: left;"><strong>int</strong></td>
             <td style="text-align: center;">Sim</td>
             <td style="text-align: left;">Prazo de pagamento em meses</td>
         </tr>
         <tr>
-            <td style="text-align: left;"><code class="rdmd-code lang- theme-light"tabindex="0">
-                <span class="cm-s-neo">email</span></code>
-            </td>
+            <td style="text-align: left;">email</td>
             <td style="text-align: left;"><strong>email</strong></td>
             <td style="text-align: center;">Não</td>
             <td style="text-align: left;">Email para receber um resumo da simulação do crédito</td>
         </tr>
         <tr>
-            <td style="text-align: left;"><code class="rdmd-code lang- theme-light">
-                <span class="cm-s-neo">interest_type</span></code>
-            </td>
+            <td style="text-align: left;">interest_type</td>
             <td style="text-align: left;"><strong>string</strong></td>
             <td style="text-align: center;">Não</td>
             <td style="text-align: left;">Tipo de taxa de juros, podendo ser fixa (fixed) ou variável(variable)<br>Valor default fixed</td>
         </tr>
         <tr>
-            <td style="text-align: left;"><code class="rdmd-code lang- theme-light">
-                <span class="cm-s-neo" data-testid="SyntaxHighlighter">currency</span></code>
-            </td>
+            <td style="text-align: left;">currency</td>
             <td style="text-align: left;"><strong>string</strong></td>
             <td style="text-align: center;">Não</td>
             <td style="text-align: left;">
@@ -106,6 +97,9 @@ Request Params
 
 $ composer install
 $ cp .env.example .env
+
+# preencha os valores em .env
+
 $ php artisan serve #inicia o projeto
 ```
 
