@@ -25,6 +25,8 @@ class LoanSimulation extends Mailable
             'monthly_installment' => Sanitize::formatCurrency($loanSimulation['monthly_installment'], $loanSimulation['currency']),
             'total_amount_to_be_paid' => Sanitize::formatCurrency($loanSimulation['total_amount_to_be_paid'], $loanSimulation['currency']),
             'total_interest_paid' => Sanitize::formatCurrency($loanSimulation['total_interest_paid'], $loanSimulation['currency']),
+            'original_loan_amount' => Sanitize::formatCurrency($loanSimulation['original_loan_amount'], 'BRL'),
+            'currency' => $loanSimulation['currency']
         ];
     }
 
