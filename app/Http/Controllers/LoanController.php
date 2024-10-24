@@ -60,7 +60,13 @@ class LoanController extends Controller
 
         // Validate to send Email
         if ($request->has('email')) {
-            Mail::to($request->input('email'))->queue(new LoanSimulation(loanSimulation: $simulateLoan));
+            Mail::to($request->input('email'))->queue(new LoanSimulation([
+                'monthly_installment' => $simulateLoan['monthly_installment'],
+                'total_amount_to_be_paid' => $simulateLoan['total_amount_to_be_paid'],
+                'total_interest_paid' => $simulateLoan['total_interest_paid'],
+                'original_loan_amount' => $loanAmount,
+                'currency' => $simulateLoan['currency']
+            ]));
         }
 
         return response()->json([
