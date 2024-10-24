@@ -7,13 +7,17 @@ use Illuminate\Support\Number;
 class Sanitize
 {
     /**
-     * Formata um valor monetário para BRL.
+     * Formatt the amount according with the currency.
      *
      * @param float $amount
      * @return string
      */
-    public static function formatCurrencyBRL($amount)
+    public static function formatCurrency($amount, $currency)
     {
-        return 'R$ ' . number_format($amount, 2, ',', '.');
+        if($currency == 'BRL') {
+            return 'R$ ' . number_format($amount, 2, ',', '.');
+        }
+
+        return Number::currency($amount, in: $currency);
     }
 }

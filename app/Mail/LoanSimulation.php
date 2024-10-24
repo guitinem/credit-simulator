@@ -22,9 +22,9 @@ class LoanSimulation extends Mailable
     public function __construct($loanSimulation)
     {
         $this->loanSimulation = [
-            'monthly_installment' => Sanitize::formatCurrencyBRL($loanSimulation['monthly_installment']),
-            'total_amount_to_be_paid' => Sanitize::formatCurrencyBRL($loanSimulation['total_amount_to_be_paid']),
-            'total_interest_paid' => Sanitize::formatCurrencyBRL($loanSimulation['total_interest_paid']),
+            'monthly_installment' => Sanitize::formatCurrency($loanSimulation['monthly_installment'], $loanSimulation['currency']),
+            'total_amount_to_be_paid' => Sanitize::formatCurrency($loanSimulation['total_amount_to_be_paid'], $loanSimulation['currency']),
+            'total_interest_paid' => Sanitize::formatCurrency($loanSimulation['total_interest_paid'], $loanSimulation['currency']),
         ];
     }
 
